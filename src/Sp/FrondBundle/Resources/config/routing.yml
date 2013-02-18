@@ -1,0 +1,3 @@
+frond_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: FrondBundle:Default:index }

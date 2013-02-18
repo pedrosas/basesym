@@ -1,0 +1,7 @@
+parameters:
+#    provincia.example.class: Sp\ProvinciaBundle\Example
+
+services:
+#    provincia.example:
+#        class: %provincia.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
