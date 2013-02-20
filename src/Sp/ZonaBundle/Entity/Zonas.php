@@ -31,7 +31,7 @@ class Zonas
     /**
      * @var \Paises
      *
-     * @ORM\ManyToOne(targetEntity="Paises")
+     * @ORM\ManyToOne(targetEntity="Sp\PaisBundle\Entity\Paises")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="paises_Id", referencedColumnName="Id")
      * })
@@ -39,24 +39,24 @@ class Zonas
     private $paises;
 
     /**
+     * @var \Provincias
+     *
+     * @ORM\ManyToOne(targetEntity="Sp\ProvinciaBundle\Entity\Provincias")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="provincias_Id", referencedColumnName="Id")
+     * })
+     */
+    private $provincias;
+
+    /**
      * @var \Poblaciones
      *
-     * @ORM\ManyToOne(targetEntity="Poblaciones")
+     * @ORM\ManyToOne(targetEntity="Sp\PoblacionBundle\Entity\Poblaciones")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="poblaciones_Id", referencedColumnName="Id")
      * })
      */
     private $poblaciones;
-
-    /**
-     * @var \Poblaciones
-     *
-     * @ORM\ManyToOne(targetEntity="Poblaciones")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="poblaciones_Id1", referencedColumnName="Id")
-     * })
-     */
-    private $poblaciones1;
 
 
 
@@ -96,10 +96,10 @@ class Zonas
     /**
      * Set paises
      *
-     * @param \Sp\ZonaBundle\Entity\Paises $paises
+     * @param \Sp\PaisBundle\Entity\Paises $paises
      * @return Zonas
      */
-    public function setPaises(\Sp\ZonaBundle\Entity\Paises $paises = null)
+    public function setPaises(\Sp\PaisBundle\Entity\Paises $paises = null)
     {
         $this->paises = $paises;
     
@@ -109,7 +109,7 @@ class Zonas
     /**
      * Get paises
      *
-     * @return \Sp\ZonaBundle\Entity\Paises 
+     * @return \Sp\PaisBundle\Entity\Paises 
      */
     public function getPaises()
     {
@@ -117,12 +117,35 @@ class Zonas
     }
 
     /**
-     * Set poblaciones
+     * Set provincias
      *
-     * @param \Sp\ZonaBundle\Entity\Poblaciones $poblaciones
+     * @param \Sp\ProvinciaBundle\Entity\Provincias $provincias
      * @return Zonas
      */
-    public function setPoblaciones(\Sp\ZonaBundle\Entity\Poblaciones $poblaciones = null)
+    public function setProvincias(\Sp\ProvinciaBundle\Entity\Provincias $provincias = null)
+    {
+        $this->provincias = $provincias;
+    
+        return $this;
+    }
+
+    /**
+     * Get provincias
+     *
+     * @return \Sp\ProvinciaBundle\Entity\Provincias 
+     */
+    public function getProvincias()
+    {
+        return $this->provincias;
+    }
+
+    /**
+     * Set poblaciones
+     *
+     * @param \Sp\PoblacionBundle\Entity\Poblaciones $poblaciones
+     * @return Zonas
+     */
+    public function setPoblaciones(\Sp\PoblacionBundle\Entity\Poblaciones $poblaciones = null)
     {
         $this->poblaciones = $poblaciones;
     
@@ -132,33 +155,10 @@ class Zonas
     /**
      * Get poblaciones
      *
-     * @return \Sp\ZonaBundle\Entity\Poblaciones 
+     * @return \Sp\PoblacionBundle\Entity\Poblaciones 
      */
     public function getPoblaciones()
     {
         return $this->poblaciones;
-    }
-
-    /**
-     * Set poblaciones1
-     *
-     * @param \Sp\ZonaBundle\Entity\Poblaciones $poblaciones1
-     * @return Zonas
-     */
-    public function setPoblaciones1(\Sp\ZonaBundle\Entity\Poblaciones $poblaciones1 = null)
-    {
-        $this->poblaciones1 = $poblaciones1;
-    
-        return $this;
-    }
-
-    /**
-     * Get poblaciones1
-     *
-     * @return \Sp\ZonaBundle\Entity\Poblaciones 
-     */
-    public function getPoblaciones1()
-    {
-        return $this->poblaciones1;
     }
 }
